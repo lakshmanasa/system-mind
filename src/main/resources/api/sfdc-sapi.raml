@@ -1,0 +1,18 @@
+#%RAML 1.0
+title: sfdc-sapi
+
+
+
+traits:
+  post-req: !include Traits/post-req-res.raml
+
+resourceTypes:
+  post-met: !include ResourceTypes/post-resourceType.raml
+
+/sapi:
+  /sfdc/accounts:
+    type:
+      post-met
+
+
+

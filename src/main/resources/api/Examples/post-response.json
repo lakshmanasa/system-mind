@@ -1,0 +1,52 @@
+{
+  "compositeResponse": [
+    {
+      "body": {
+        "id": "a032w00000TucYwAAJ",
+        "success": true,
+        "errors": []
+      },
+      "httpHeaders": {
+        "Location": "/services/data/v51.0/sobjects/a__c/a032w00000TucYwAAJ"
+      },
+      "httpStatusCode": 201,
+      "referenceId": "a"
+    },
+    {
+      "body": {
+        "id": "a032w00000TucYxAAJ",
+        "success": true,
+        "errors": []
+      },
+      "httpHeaders": {
+        "Location": "/services/data/v51.0/sobjects/a__c/a032w00000TucYxAAJ"
+      },
+      "httpStatusCode": 201,
+      "referenceId": "a1"
+    },
+    {
+      "body": {
+        "id": "a042w00000zUZz1AAG",
+        "success": true,
+        "errors": []
+      },
+      "httpHeaders": {
+        "Location": "/services/data/v51.0/sobjects/b__c/a042w00000zUZz1AAG"
+      },
+      "httpStatusCode": 201,
+      "referenceId": "b1"
+    },
+    {
+      "body": {
+        "id": "a042w00000zUZz2AAG",
+        "success": true,
+        "errors": []
+      },
+      "httpHeaders": {
+        "Location": "/services/data/v51.0/sobjects/b__c/a042w00000zUZz2AAG"
+      },
+      "httpStatusCode": 201,
+      "referenceId": "b"
+    }
+  ]
+}

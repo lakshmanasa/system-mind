@@ -1,0 +1,50 @@
+{
+	"compositeRequest":[{
+		"method": "POST",
+		"url": "/services/data/v51.0/sobjects/account__c",
+		"referenceId": "a",
+		"body": {
+      "Name": "lakshman",
+      "isTest__c": true,
+      "Industry": "Enique",
+      "Subvertical__c": "other",
+      "SBQQ__TaxExempt__c": "0",
+      "CurrencyIsoCode__c": "Rupees",
+      "OwnerID__c": "abcd123",
+      "RecordTypeId__c": "abcd456",
+      "Description__c": "hi",
+      "BillingStreet__c": "Narasimha",
+      "BillingCity__c": "Guntur",
+      "BillingPostalCode__c": "522616",
+      "BillingStateCode__c": "522616",
+      "BillingCountryCode__c": "India",
+      "QS_Bill_To_Email__c": "a@gmail.com",
+      "Phone__c": "9347359767",
+      "APIMBOGUID__c": "yuywud",
+      "AccountSource__c": "postman"
+    }},
+    {
+      "method": "POST",
+      "url": "/services/data/v51.0/sobjects/contact__c",
+      "referenceId": "a",
+      "body": {
+        "AccountId__c": "1",
+        "RecordTypeId__c": "abcd456",
+        "LastName__c": "Asa",
+        "FirstName__c": "Lakshman",
+        "Phone__c": "9347359767",
+        "Email__c": "a@gmail.com"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/services/data/v51.0/sobjects/billing__c",
+      "referenceId": "a",
+      "body": {
+        "AccountId__c": "1",
+        "CurrencyIsocode__c": "Rupees",
+        "Sync_Immediate_c": "ghkj",
+        "IntegrationStatus__c": "hygdy",
+        "IntegrationMessage__c": "hi"
+      }
+    }]}

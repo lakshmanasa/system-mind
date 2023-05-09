@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule
+	xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns:salesforce-composite="http://www.mulesoft.org/schema/mule/salesforce-composite"
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/salesforce-composite http://www.mulesoft.org/schema/mule/salesforce-composite/current/mule-salesforce-composite.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+	<http:listener-config
+		name="sfdc-sapi-httpListenerConfig">
+		<http:listener-connection host="0.0.0.0"
+			port="${ssfdc.port}" protocol="HTTPS">
+			<tls:context >
+				<tls:key-store type="jks" path="server-keystore.jks" keyPassword="mulesoft" password="mulesoft" />
+			</tls:context>
+		</http:listener-connection>
+	</http:listener-config>
+	<apikit:config name="sfdc-sapi-config"
+		api="sfdc-sapi.raml" outboundHeadersMapName="outboundHeaders"
+		httpStatusVarName="httpStatus" />
+	<salesforce-composite:composite-config
+		name="Salesforce_Composite_Config"
+		doc:name="Salesforce Composite Config"
+		doc:id="79a5ee69-fe35-47d4-b0b7-d4782d80ce88">
+		<salesforce-composite:oauth-user-pass-connection
+			consumerKey="${sfdc.key}" consumerSecret="${sfdc.secret}"
+			username="${sfdc.username}" password="${sfdc.password}"
+			securityToken="${sfdc.token}" />
+	</salesforce-composite:composite-config>
+	<configuration-properties
+		doc:name="Configuration properties"
+		doc:id="fc7a1707-d1bb-4100-8a66-a97420b1910b" file="${env}.properties" />
+	<import doc:name="Import"
+		doc:id="e6c6a87e-4743-4815-a8be-ee5eb9224298"
+		file="error-framework-sf.xml" />
+	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="9d15a0f8-3fb3-48fe-9ee7-e1140517fc83" environment="${mule.env}" />
+</mule>
